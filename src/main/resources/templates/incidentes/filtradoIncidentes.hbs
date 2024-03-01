@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="/css/inicioEstilo.css">
+
+<html>
+<head>
+    <nav class="navbar navbar-dark fixed-top" style="background-color: #078FC9;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="background-color: #078FC9;">Monitoreo de Estado de Servicios de Transporte Publico y de Establecimientos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" style="background-color: #078FC9;">
+                <div class="offcanvas-header" style="background-color: #078FC9;">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu principal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" style="background-color: #078FC9;"></button>
+                </div>
+                <div class="offcanvas-body" style="background-color: #078FC9;">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/inicio">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Mi perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mis-comunidades">Mis comunidades</a>
+                        </li>
+                        {{#if persona.isAdmin}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/establecimientos">Crear Establecimientos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/usuarios">Administrar usuarios</a>
+                            </li>
+                        {{/if}}
+                        <li class="nav-item">
+                            <a class="nav-link" id="id-link-logout" href="/" onclick="cerrarSesion()">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .resumen-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #EAF5FF;
+            color: black;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .resumen-item {
+            width: 48%;
+            text-align: center;
+        }
+
+        .boton-atras {
+            position: fixed;
+            bottom: 10px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+            left: 10px; /* Ajusta la distancia desde la izquierda según sea necesario */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Listado de incidentes</h1>
+<br>
+<br>
+<div class="resumen-container">
+    <div class="resumen-item">
+        <h8> Comunidad seleccionada - {{comunidad.getNombre}} </h8>
+    </div>
+    <br>
+    <div class="resumen-item">
+        <h9> Establecimiento seleccionado - {{establecimiento.getNombre}} </h9>
+    </div>
+</div>
+<br>
+<div class="container">
+    <table id="example" class="table table-striped table-bordered tabla" style="padding-top: 10px">
+        <br>
+        <thead>
+            <tr class="tabla" style="margin-left: 10px;margin-right: 10px">
+                <th style="padding-right: 30px;background-color: #078FC9; ">Servicio</th>
+                <th style="padding-right: 30px;background-color: #078FC9; ">Tipo de Servicio</th>
+                <th style="padding-right: 30px;background-color: #078FC9; ">Descripción</th>
+                <th style="padding-right: 30px;background-color: #078FC9; ">Fecha apertura</th>
+                <th style="padding-right: 30px;background-color: #078FC9; ">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each serviciosFiltrado}}
+                {{#each this.incidentes}}
+                    <tr>
+                        <td style="padding-right: 30px;">{{../getName}}</td>
+                        <td style="padding-right: 30px;">{{../getTipoServicio}}</td>
+                        <td style="padding-right: 30px;">{{this.getDescripcion}}</td>
+                        <td style="padding-right: 30px;">{{this.getFechaApertura}}</td>
+                        {{#if this.isAbierto}}
+                        <td style="padding-right: 30px;background-color: green;color: white;;">{{this.getEstado}}</td>
+                        {{else}}
+                        <td style="padding-right: 30px;background-color: darkred;color: white;;">{{this.getEstado}}</td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            {{/each}}
+
+        </tbody>
+    </table>
+
+</div>
+<br>
+<br>
+<style>
+        .vertical-scrollable>.row {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            width: 50%;
+            overflow-y: scroll;
+        }
+
+        .td{
+            color: green;
+           }
+
+        .th{
+        color: green;
+         }
+
+         .col-sm-8 {
+            color: white;
+            font-size: 10px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .col-sm-8:nth-child(2n+1) {
+            background: green;
+        }
+        .col-sm-8:nth-child(2n+2) {
+            background: black;
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"></script>
+<script src="/js/listadoIncidentes.js"></script>
+
+<script>
+    function cerrarSesion(){
+        fetch('/usuario/cerrarSesion',{method:'POST'}).
+        then(function(response){
+            if(response.ok){
+                console.log("Sesion cerrada");
+            }
+            else{
+                throw "Error en llamada Ajax";
+            }
+        }); }
+</script>
+</body>
+
+
+
+</html>

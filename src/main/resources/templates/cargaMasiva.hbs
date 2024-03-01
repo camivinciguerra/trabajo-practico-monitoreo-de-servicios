@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/inicioEstilo.css">
+<html>
+<head>
+
+    <nav class="navbar navbar-dark fixed-top" style="background-color: #078FC9;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="background-color: #078FC9;">Monitoreo de Estado de Servicios de Transporte Publico y de Establecimientos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" style="background-color: #078FC9;">
+                <div class="offcanvas-header" style="background-color: #078FC9;">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu principal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" style="background-color: #078FC9;"></button>
+                </div>
+                <div class="offcanvas-body" style="background-color: #078FC9;">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/inicio">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Mi perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis comunidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/establecimientos">Crear Establecimientos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usuarios">Administrar usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="id-link-logout" href="/" onclick="cerrarSesion()">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .boton-atras {
+            position: fixed;
+            bottom: 10px; /* Ajusta la distancia desde la parte inferior según sea necesario */
+            left: 10px; /* Ajusta la distancia desde la izquierda según sea necesario */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+    <body>
+<br>
+<br>
+<br>
+<br>
+<h1>Carga masiva de entidades prestadoras<br>y organismos de control</h1>
+<br>
+<br>
+<div class="alert alert-light" role="alert">
+    Descarga el archivo de ejemplo
+    <a href="resources/public/archivos/Prueba2.csv" class="btn btn-outline-primary" download="Prueba2.csv">Descargar Ejemplo</a>
+    <br>
+    Lee más del formato CSV en <a href="http://en.wikipedia.org/wiki/Comma-separated_values" class="btn btn-outline-info">Wikipedia</a>
+</div>
+
+
+
+<form id="formulario-organismos" method="post" action="/carga-masiva" enctype="multipart/form-data" name="fileinfo">
+<div class="row">
+    <div class="col-md-7">
+        <br>
+        <!-- Contenido de la columna izquierda -->
+        <div class="d-flex">
+            <h4>Tipo de organismo</h4>
+            <label for="tipo-organismo" class="form-label"></label>
+            <select id="tipo-organismo" class="form-select" name="tipo-organismo" style="width: 60%">
+                <option selected>Entidad prestadora</option>
+                <option>Organismo de control</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h4>Tipos de entidad aceptados</h4>
+        <div class="form-group">
+            <select class="form-select barra" multiple id="tipos" name="tipos" style="width: 60%">
+                {{#each tipos}}
+                    <option value="{{this.getNombre}}">{{this.getNombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+<div class="row">
+    <!-- Contenido de la columna izquierda -->
+    <div class="d-flex">
+        <h4>Elige un archivo CSV<br>para cargar</h4>
+        <div class="mb-3">
+            <label for="formFile" class="form-label"></label>
+            <input class="form-control" name = "fileinfo" type="file" id="formFile">
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+<div class="carga-archivo">
+    <div class="d-flex justify-content-center align-items-right">
+        <div class="boton-unirme">
+            <button type="button" class="btn btn-primary btn-block" id="boton-carga-masiva">CARGAR</button>
+        </div>
+    </div>
+</div>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="/js/cargaMasiva.js"></script>
+
+<div class = "boton-atras" id = "div-atras-id">
+    <a href="/inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgb(7,143,201)" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg>
+    </a>
+</div>
+
+<script>
+        function cerrarSesion(){
+            fetch('/usuario/cerrarSesion',{method:'POST'}).
+            then(function(response){
+                if(response.ok){
+                    console.log("Sesion cerrada");
+                }
+                else{
+                    throw "Error en llamada Ajax";
+                }
+            });
+        }
+</script>
+
+</body>
+</html>

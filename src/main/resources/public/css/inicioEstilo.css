@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Lexend Deca';
+    src: url('/archivosExtra/tipografias/LexendDeca-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header-monitoreo{
+    text-align: right;
+    background-color: #078FC9;
+    margin: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0px;
+    padding:3px;
+    height: 60px;
+}
+
+.p1{
+    margin-top: 0px;
+    font-family: 'Lexend Deca';
+    color: white;
+}
+
+/* Estilos generales del menú */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    background-color: #078FC9; /* Color de fondo del menú */
+    padding: 10px 20px;
+    color: black; /* Color del texto del menú */
+    font-family: 'Lexend Deca';
+}
+
+/* Estilos del ícono de usuario */
+.user-icon img {
+    width: 30px; /* Ajusta el tamaño del ícono de usuario según tus necesidades */
+    height: 30px;
+    margin-right: 10px; /* Espacio entre el ícono de usuario y el texto del botón */
+}
+
+/* Estilos del botón desplegable */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos del contenido desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilos del contenido desplegable cuando se muestra */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #078FC9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Lexend Deca';
+    margin: 0; /* Establecer todos los márgenes en 0 para eliminar el espacio en blanco */
+    padding: 0;
+}
+
+
+head{
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+
+.botones{
+    color: #EAF5FF;
+}
+
+.dropdown-toggle{
+    color: black;
+}
+
+.btn-secondary{
+    text-align: right;
+    background-color:#EAF5FF;
+    color: black;
+    border-color: #078FC9;
+    border-radius: 10px;
+    width: 10px;
+}
+
+.contenedor {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-300px);
+}
+
+.carousel{
+    transform: translateY(-60px);
+}
+
+.user-icon-2 img {
+    width: 30px; /* Ajusta el tamaño del ícono de usuario según tus necesidades */
+    height: 30px;
+    margin-right: 10px; /* Espacio entre el ícono de usuario y el texto del botón */
+}
+.contenedor-boton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: black; /* Color del texto del menú */
+    font-family: 'Lexend Deca';
+}
+
+.alerta{
+    background-color: aliceblue;
+    text-align: center;
+    color: black;
+    border-color: aliceblue;
+    opacity: 0.5;
+    transform: translateY(40px);
+}
+
+.comunidad {
+    display: flex;
+    align-items: center; /* Para centrar verticalmente el contenido */
+    width: 80%;
+    margin-left: 30px;
+  }
+
+  .comunidad .alert {
+    flex: 1;
+    margin-right: 20px; /* Espacio entre el elemento alert y los botones */
+  }
+
+  .comunidad h4,
+  .comunidad button {
+    margin-right: 10px; /* Espacio entre los elementos h4 y los botones */
+  }
+
+  .btn-primary{
+      background-color: #078FC9;
+      border-color: #078FC9;
+      margin-right: 10px;
+      margin-left: 30px;
+  }
+
+  h1{
+      margin-left: 20px;
+      color:#078FC9;
+  }
+
+  .row{
+      margin-left: 20px;
+  }
+
+  .columna{
+      margin-left: 0px;
+  }
+
+  .comunidad-columna {
+    margin-right: 0px; /* Puedes ajustar el valor según tus necesidades */
+  }
+
+  h4{
+      margin-right: 20px;
+  }
+
+  h6{
+      color:#078FC9;
+  }
+
+  .alerta-csv{
+      width: 70%;
+  }
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.bottom-monitoreo{
+    text-align: right;
+    background-color: #078FC9;
+    margin: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+    padding:3px;
+    height: 30px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }
+
+.texto-incidentes{
+    color: white;
+}
+
+.td{
+    border-color: #EAF5FF;
+}
+
+.th{
+    border-color: #EAF5FF;
+}
+
+.boton-atras{
+position: fixed;
+margin-bottom: 5px;
+left: 10px;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}

@@ -1,0 +1,33 @@
+
+/* Cambiar el color del botón de página siguiente en estado hover */
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+    background-color: #078FC9;
+    color: #fff; /* Cambia el color del texto a blanco */
+}
+
+
+/* Cambiar el color del botón de página siguiente en estado activo (clic) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.first:hover {
+    background-color: #078FC9;
+    color: #fff; /* Cambia el color del texto a blanco */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.last:hover {
+    background-color: #078FC9;
+    color: #fff; /* Cambia el color del texto a blanco */
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #078FC9;
+    color: #fff; /* Cambia el color del texto a blanco */
+}
+
+/* Aumentar la especificidad */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+
+
+
+

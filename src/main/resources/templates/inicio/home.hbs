@@ -1,0 +1,245 @@
+<html>
+<head>
+    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <nav class="navbar navbar-dark fixed-top" style="background-color: #078FC9;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="background-color: #078FC9;">Monitoreo de Estado de Servicios de
+                Transporte Publico y de Establecimientos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                 aria-labelledby="offcanvasDarkNavbarLabel" style="background-color: #078FC9;">
+                <div class="offcanvas-header" style="background-color: #078FC9;">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu principal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"
+                            style="background-color: #078FC9;"></button>
+                </div>
+                <div class="offcanvas-body" style="background-color: #078FC9;">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/inicio">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Mi perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mis-comunidades">Mis comunidades</a>
+                        </li>
+                        {{#if persona.isAdmin}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/establecimientos">Crear Establecimientos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/usuarios">Administrar usuarios</a>
+                            </li>
+                        {{/if}}
+                        <li class="nav-item">
+                            <a class="nav-link" id="id-link-logout" href="/" onclick="cerrarSesion()">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .custom-carousel {
+            position: relative;
+        }
+
+        .alert-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1000;
+        }
+
+        .alert {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001; /* Coloca la alerta sobre el overlay */
+        }
+
+        @font-face {
+            font-family: 'Lexend Deca';
+            src: url('/archivosExtra/tipografias/LexendDeca-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html{
+            font-family: 'Lexend Deca';
+        }
+
+        body{
+            font-family: 'Lexend Deca';
+        }
+    </style>
+</head>
+<body>
+<!--
+<div class="custom-carousel">
+
+    <div class="alert-overlay" id="alertOverlay">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert"
+             style="background-color: #EAF5FF; border: 2px solid #078FC9; border-radius: 10px; color: black; text-align: center;">
+            <strong>SUGERENCIA</strong><br>¿Podrias revisar el incidente #?
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+-->
+    <!-- Carrusel -->
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <!-- Imágenes del carrusel -->
+            <div class="carousel-item active">
+                <img src="/archivosExtra/imagenes/carousel1.jpg" class="d-block w-100"
+                     style="max-width: 100%; height: 400px;" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/archivosExtra/imagenes/carousel2-2.jpg" class="d-block w-100"
+                     style="max-width: 100%; height: 400px;" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/archivosExtra/imagenes/carousel3-2.jpg" class="d-block w-100"
+                     style="max-width: 100%; height: 400px;" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/archivosExtra/imagenes/carousel4-2.jpg" class="d-block w-100"
+                     style="max-width: 100%; height: 400px;" alt="Imagen 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <div class="row">
+        <div class="col mb-4 d-flex align-items-center text-left fs-5 custom-cell" style="background-color: #EAF5FF;  border: 2px solid #078FC9; border-radius: 10px; margin-right: 10px">
+            <div class="d-flex justify-content-between w-100">
+                <a class="nav-link active" aria-current="page" href="/carga-masiva" style="text-align: left;">
+                    Carga masiva de datos de entidades prestadoras y organismos de control
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor"
+                     class="bi bi-people-fill" viewBox="0 0 16 16">
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="col mb-4 d-flex align-items-center text-left fs-5" style="background-color: #EAF5FF; margin-right: 10px; border: 2px solid #078FC9; border-radius: 10px;">
+            <div class="d-flex justify-content-between w-100">
+            <a class="nav-link active" aria-current="page" href="/incidentes/crear" style="text-align: left;">
+                Apertura de incidentes
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                     class="bi bi-pencil-square ms-auto" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd"
+                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+            </a>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-4 d-flex align-items-center text-left fs-5"
+             style="background-color: #EAF5FF; margin-right: 10px; border: 2px solid #078FC9; border-radius: 10px; height: 70px;">
+            <div class="d-flex justify-content-between w-100">
+            <a class="nav-link active" aria-current="page" href="/incidentes/cerrar">
+                Cierre de incidentes
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                     class="bi bi-envelope-paper-fill ms-auto" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M6.5 9.5 3 7.5v-6A1.5 1.5 0 0 1 4.5 0h7A1.5 1.5 0 0 1 13 1.5v6l-3.5 2L8 8.75zM1.059 3.635 2 3.133v3.753L0 5.713V5.4a2 2 0 0 1 1.059-1.765ZM16 5.713l-2 1.173V3.133l.941.502A2 2 0 0 1 16 5.4zm0 1.16-5.693 3.337L16 13.372v-6.5Zm-8 3.199 7.941 4.412A2 2 0 0 1 14 16H2a2 2 0 0 1-1.941-1.516zm-8 3.3 5.693-3.162L0 6.873v6.5Z"/>
+                </svg>
+            </a>
+            </div>
+    </div>
+    <div class="col mb-4 d-flex align-items-center text-left fs-5"
+         style="background-color: #EAF5FF; margin-right: 10px; border: 2px solid #078FC9; border-radius: 10px;">
+        <div class="d-flex justify-content-between w-100">
+        <a class="nav-link active" aria-current="page" href="/incidente/listado">
+        Listado de incidentes
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+             class="bi bi-card-checklist ms-auto" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+        </svg>
+        </a>
+    </div>
+    </div>
+    <div class="col mb-4 d-flex align-items-center text-left fs-5"
+         style="background-color: #EAF5FF; margin-right: 10px; border: 2px solid #078FC9; border-radius: 10px;">
+        <div class="d-flex justify-content-between w-100">
+        <a class="nav-link active" aria-current="page" href="/ranking">
+        Rankings de incidentes
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+             class="bi bi-list-stars ms-auto" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5"/>
+            <path d="M2.242 2.194a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.256-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53zm0 4a.27.27 0 0 1 .516 0l.162.53c.035.115.14.194.258.194h.551c.259 0 .37.333.164.493l-.468.363a.277.277 0 0 0-.094.3l.173.569c.078.255-.213.462-.423.3l-.417-.324a.267.267 0 0 0-.328 0l-.417.323c-.21.163-.5-.043-.423-.299l.173-.57a.277.277 0 0 0-.094-.299l-.468-.363c-.206-.16-.095-.493.164-.493h.55a.271.271 0 0 0 .259-.194l.162-.53z"/>
+        </svg>
+        </a>
+    </div>
+    </div>
+</div>
+</div>
+<script>
+    /*
+    document.addEventListener('DOMContentLoaded', function () {
+        var alertOverlay = document.getElementById('alertOverlay');
+        var alert = new bootstrap.Alert(alertOverlay.querySelector('.alert'));
+
+        alert._element.addEventListener('closed.bs.alert', function () {
+            alertOverlay.style.display = 'none';
+        });
+
+        // Display the alert after a delay for testing purposes
+        setTimeout(function () {
+            alertOverlay.style.display = 'block';
+        }, 2000); // Ajusta el tiempo de espera según sea necesario
+    });*/
+
+
+
+    function cerrarSesion(){
+    fetch('/usuario/cerrarSesion',{method:'POST'}).
+    then(function(response){
+        if(response.ok){
+            console.log("Sesion cerrada");
+        }
+        else{
+            throw "Error en llamada Ajax";
+        }
+    });
+    }
+
+
+
+</script>
+</body>
+</html>

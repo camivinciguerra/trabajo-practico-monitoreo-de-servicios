@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tu cuenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/loginEstilo.css">
+</head>
+<body>
+<div class="login">
+    <h3>Carga tus datos</h3>
+    <br>
+    <h4>* Campos obligatorios</h4>
+    <br>
+    <form id="formulario-creacion-usuario" method="post">
+        <div class="mb-3">
+            <label for="nombreUsuario" class="texto-boton">Nombre y apellido *</label>
+            <input type="text" class="barra" id="nombreUsuario" name="nombreUsuario">
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="mailUsuario" class="texto-boton">Mail de contacto *</label>
+            <input type="text" class="barra" id="mailUsuario" name="mailUsuario">
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="telefonoUsuario" class="texto-boton">Teléfono de contacto *</label>
+            <div class="mb-3">
+                <label for="numero">Número</label>
+                <h4>Escríbelo todo junto, sin espacios ni guiones</h4>
+                <input type="text" class="barra" id="numero" name="numero">
+            </div>
+            <br>
+            <br>
+            <div class="carga-datos-link">
+                <button type="button" class="btn btn-primary btn-block" id="boton-crear-usuario">CONTINUAR</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class = "boton-atras" id = "div-atras-id">
+    <a href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg>
+    </a>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/crearUsuario.js"></script>
+</body>
+</html>

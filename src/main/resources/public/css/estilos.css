@@ -1,0 +1,113 @@
+.cuadro-redondeado {
+            border-radius: 46px; /* Ajusta el valor según tus preferencias */
+            padding: 50px; /* Añade espacio interno al cuadro */
+            width: 90%;
+            height: 90%;
+            background-color: #078FC9; /* Color de fondo del cuadro */
+            text-align: center;
+            max-width: 600px;
+            flex: 0;
+            min-width: 300px;
+            box-sizing: border-box;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto ajusta la altura al 100% del viewport */
+}
+
+@font-face {
+    font-family: 'Lexend Deca';
+    src: url('/archivosExtra/tipografias/LexendDeca-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.redireccion{
+    color: white;
+    text-underline-color: white;
+}
+ p, h1, h2, h3{
+    margin-left: 20px;
+    font-family: 'Lexend Deca';
+ }
+
+ .p1{
+     margin-top: 0px;
+     font-family: 'Lexend Deca';
+     color: white;
+ }
+
+ h3{
+     margin-top: 0px;
+     margin-bottom: 100px;
+     color: white;
+ }
+
+.texto-recuadro{
+    color: white;
+}
+.texto-botones{
+    font-weight: bold;
+    font-family: 'Lexend Deca';
+    font-size: 20px;
+}
+
+.header-monitoreo{
+    text-align: right;
+    background-color: #078FC9;
+    margin: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0px;
+    padding:3px;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #EAF5FF;
+    margin-bottom: 0px;
+}
+
+.menu-ingreso {
+    margin: 50px; /* Ajusta según tus preferencias */
+}
+
+
+h3{
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+.imagen {
+    flex: 1; /* Esta regla hace que ocupe el espacio restante disponible */
+}
+
+.telefono-utiles {
+    background-color: #078FC9;
+    font-family: 'Lexend Deca';
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 3px;
+    font-size: 12px;
+}
+
+.botones-container {
+    display: flex; /* Establece el contenedor como un flex container */
+    align-items: center; /* Centra verticalmente los elementos hijos (los botones) */
+}
+
+.boton-atras{
+position: fixed;
+margin-bottom: 5px;
+left: 10px;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}

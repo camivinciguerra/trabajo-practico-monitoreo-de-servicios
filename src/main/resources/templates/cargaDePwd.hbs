@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termina de crear tu cuenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/loginEstilo.css">
+</head>
+<body>
+<div class="login">
+    <h3> Termina de crear tu cuenta </h3>
+    <br>
+    <br>
+    <form id="formulario-pwd" method="post">
+        <div class="mb-3">
+            <div class="mb-3">
+                <label for="username">
+                    <div class="texto-boton">Nombre de usuario *</div><br>
+                </label>
+                <input type="username" class="barra" id="username" name="username">
+            </div>
+        </div>
+    <div class="mb-3">
+        <div class="mb-3">
+            <label for="password">
+                <div class="texto-boton">Contraseña *</div><br>
+                <h4>*Requisitos: Debe contener al menos 8 caracteres, una minúscula, una mayúscula y un caracter especial </h4>
+            </label>
+            <input type="password" class="barra" id="password" name="password">
+        </div>
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="password">
+            <div class="texto-boton">Confirma tu contraseña *</div><br>
+        </label>
+        <input type="password" class="barra" id="contrasenia2" name="contrasenia2">
+    </div>
+    <br>
+    <br>
+    <div class="inicio-link">
+            <button type="button" class="btn btn-primary btn-block" id="boton-finalizar-carga" >FINALIZAR</button>
+             {{#if mensajeError}}
+            <p class="mensaje-error">Error:
+                {{mensajeError}}
+            </p>
+            {{/if}}
+
+        <div class = "popup" id = "popup">
+            <img src= "/archivosExtra/imagenes/404-tick.png">
+            <h2 > Gracias! </h2>
+            <p> Su usuario ha sido creado con éxito </p>
+            <button type = "button" id="boton-popup"> OK </button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<div class = "boton-atras" id = "div-atras-id">
+    <a href="/create/carga-de-datos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg>
+    </a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/cargarPwd.js"></script>
+
+</body>
+</html>
+
+
+
+
